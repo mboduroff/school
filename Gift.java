@@ -17,6 +17,8 @@ public class Gift {
         this.occasion = occasion;
         this.price = price;
         this.weight = weight;
+
+        System.out.println("[ВЪВЕДЕН] " + this);
     }
 
     public Gift() {
@@ -32,11 +34,12 @@ public class Gift {
         System.out.println("Колко тежи Вашият подарък? (kg)");
         this.weight = sc.nextDouble();
 
+        System.out.println("[ВЪВЕДЕН] " + this);
     }
 
     public void getInfo() {
-        System.out.printf("Подаръкът %s е за %s по повод %s и е на цена %.2f лв.%n",
-                giftContent, recipient, occasion, price);
+        System.out.printf("Подаръкът %s е за %s по повод %s, на цена %.2f лв и тежи %.3f kg.%n",
+                giftContent, recipient, occasion, price, weight);
     }
 
     public Gift findMoreExpensive(Gift g) {
@@ -54,6 +57,7 @@ public class Gift {
     }
 
     public Gift findHeavier(Gift g) {
+        System.out.println("По-тежкият подарък от " + this.getGiftContent() +  " и " + g.getGiftContent() + " е:");
         if (g.getWeight() < this.getWeight())
             return this;
         else
@@ -61,6 +65,7 @@ public class Gift {
     }
 
     public Gift findLighter(Gift g) {
+        System.out.println("По-лекият подарък от " + this.getGiftContent() +  " и " + g.getGiftContent() + " е:");
         if (g.getWeight() > this.getWeight())
             return this;
         else
@@ -68,16 +73,12 @@ public class Gift {
     }
 
     public boolean checkForPhone() {
-        if (this.getGiftContent().toLowerCase().contains("телефон"))
-            return true;
-        return false;
+        return this.getGiftContent().toLowerCase().contains("телефон");
     }
 
     public boolean checkForCar() {
-        if (this.getGiftContent().toLowerCase().contains("кола") ||
-                this.getGiftContent().toLowerCase().contains("автомобил"))
-            return true;
-        return false;
+        return this.getGiftContent().toLowerCase().contains("кола") ||
+                this.getGiftContent().toLowerCase().contains("автомобил");
     }
 
     public static List<Gift> sortGiftsByPrice(List<Gift> list) {
@@ -127,6 +128,8 @@ public class Gift {
 
     @Override
     public String toString() {
-        return String.format(getGiftContent());
+        return String.format("Подарък: " + this.getGiftContent() +
+                " / цена: " + String.format("%.2f", this.getPrice()) + " лв / тегло: " + this.getWeight() +
+                " kg / за: " + this.getRecipient() + " / по повод: " + this.getOccasion());
     }
 }
