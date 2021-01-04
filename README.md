@@ -1,6 +1,6 @@
 # My school repository
 
-This repo will contain all my Informatics files from 11th grade (Jan 1 2021) and later.
+This repo will contain all my Computer Science classes files from 11th grade (Jan 1 2021) and later.
 
 ## About me
 
