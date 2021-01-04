@@ -43,6 +43,7 @@ public class Gift {
     }
 
     public Gift findMoreExpensive(Gift g) {
+        System.out.println("По-скъпият подарък от " + this.getGiftContent() +  " и " + g.getGiftContent() + " е:");
         if (g.getPrice() < this.getPrice())
             return this;
         else
@@ -50,6 +51,7 @@ public class Gift {
     }
 
     public Gift findLessExpensive(Gift g) {
+        System.out.println("По-евтиният подарък от " + this.getGiftContent() +  " и " + g.getGiftContent() + " е:");
         if (g.getPrice() > this.getPrice())
             return this;
         else

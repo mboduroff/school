@@ -7,7 +7,7 @@ public class TestGift {
         ArrayList<Gift> list = new ArrayList<>();
         // Параметри за въвеждане на нов подарък: подарък, получател, повод, цена, тегло
         Gift g = new Gift("Кола", "Иван",
-                "Коледа", 500, 1000);
+                "Коледа", 5000, 1000);
         list.add(g);
 
         Gift g1 = new Gift("Телефон", "Петър",
@@ -24,5 +24,9 @@ public class TestGift {
 
         System.out.println("\nИнформация за подаръка: ");
         g2.getInfo();
+
+        if(g2.checkForPhone())
+            System.out.println("Подарък №2 (" + g2.getGiftContent() + ") е телефон.");
+
     }
 }
