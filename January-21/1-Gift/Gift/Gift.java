@@ -84,6 +84,7 @@ public class Gift {
     }
 
     public static List<Gift> sortGiftsByPrice(List<Gift> list) {
+        System.out.println("==== Подаръците, сортирани по цена: =====");
         list.sort(Comparator.comparing(Gift::getPrice));
         return list;
     }

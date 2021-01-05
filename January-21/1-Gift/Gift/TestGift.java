@@ -19,7 +19,6 @@ public class TestGift {
 
         System.out.println(g.findHeavier(g1) + "\n");
 
-        System.out.println("==== Подаръците, сортирани по цена: =====");
         g.sortGiftsByPrice(list).forEach(System.out::println);
 
         System.out.println("\nИнформация за подаръка: ");
