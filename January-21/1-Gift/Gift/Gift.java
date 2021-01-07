@@ -133,6 +133,6 @@ public class Gift {
     public String toString() {
         return String.format("Подарък: " + this.getGiftContent() +
                 " / цена: " + String.format("%.2f", this.getPrice()) + " лв / тегло: " + this.getWeight() +
-                " kg / за: " + this.getRecipient() + " / по повод: " + this.getOccasion());
+                " kg / за: " + this.getRecipient() + " / по повод: " + this.getOccasion() + "%n");
     }
 }
