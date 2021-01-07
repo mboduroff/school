@@ -39,7 +39,7 @@ public class Gift {
 
     public void getInfo() {
         System.out.printf("Подаръкът %s е за %s по повод %s, на цена %.2f лв и тежи %.3f kg.%n",
-                giftContent, recipient, occasion, price, weight);
+                this.giftContent, this.recipient, this.occasion, this.price, this.weight);
     }
 
     public Gift findMoreExpensive(Gift g) {
