@@ -74,11 +74,11 @@ public class Gift {
             return g;
     }
 
-    public boolean checkForPhone() {
+    public boolean isPhone() {
         return this.getGiftContent().toLowerCase().contains("телефон");
     }
 
-    public boolean checkForCar() {
+    public boolean isCar() {
         return this.getGiftContent().toLowerCase().contains("кола") ||
                 this.getGiftContent().toLowerCase().contains("автомобил");
     }
@@ -86,6 +86,7 @@ public class Gift {
     public static List<Gift> sortGiftsByPrice(List<Gift> list) {
         System.out.println("==== Подаръците, сортирани по цена: =====");
         list.sort(Comparator.comparing(Gift::getPrice));
+        list.forEach(System.out::println);
         return list;
     }
 
@@ -131,8 +132,8 @@ public class Gift {
 
     @Override
     public String toString() {
-        return String.format("Подарък: " + this.getGiftContent() +
+        return "Подарък: " + this.getGiftContent() +
                 " / цена: " + String.format("%.2f", this.getPrice()) + " лв / тегло: " + this.getWeight() +
-                " kg / за: " + this.getRecipient() + " / по повод: " + this.getOccasion() + "%n");
+                " kg / за: " + this.getRecipient() + " / по повод: " + this.getOccasion();
     }
 }
