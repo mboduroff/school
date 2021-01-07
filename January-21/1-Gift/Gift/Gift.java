@@ -130,6 +130,7 @@ public class Gift {
         this.weight = weight;
     }
 
+
     @Override
     public String toString() {
         return "Подарък: " + this.getGiftContent() +

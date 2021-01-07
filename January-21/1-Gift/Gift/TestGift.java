@@ -7,7 +7,11 @@ import static Gift.Gift.sortGiftsByPrice;
 public class TestGift {
     public static void main(String[] args) {
         ArrayList<Gift> list = new ArrayList<>();
+
         // Параметри за въвеждане на нов подарък: подарък, получател, повод, цена, тегло
+        // Ако не се подадат параметри се включва конструктор, получаващ данните от
+        // стандартния вход.
+
         Gift g = new Gift("Кола", "Иван",
                 "Коледа", 5000, 1000);
         list.add(g);
