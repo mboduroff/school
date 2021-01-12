@@ -148,7 +148,7 @@ public class Car {
         double min = sc.nextDouble();
         System.out.print("Моля, въведете горна граница за цените: ");
         double max = sc.nextDouble();
-        System.out.printf("✱ Всички коли на цени между %.2f и %.2f са: ✱%n", min, max);
+        System.out.printf("✱ Всички коли на цени между %.2f и %.2f лв са: ✱%n", min, max);
         for (int i = 0; i < Cars.carList.size(); i++) {
             if (Cars.carList.get(i).getPrice() > min && Cars.carList.get(i).getPrice() < max)
                 System.out.print(Cars.carList.get(i));
