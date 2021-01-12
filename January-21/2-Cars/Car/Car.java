@@ -157,7 +157,7 @@ public class Car {
 
     public double calculateTaxes() {
         double taxes = 0;
-        taxes += (getEngineDisplacement() * 0.2);
+        taxes += (this.getEngineDisplacement() * 0.2);
         if (this.yearProduced >= 2010)
             taxes += 50;
         else if (this.yearProduced >= 2001)
