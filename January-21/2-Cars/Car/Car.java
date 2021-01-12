@@ -130,7 +130,7 @@ public class Car {
         char c = sc.next().toLowerCase().charAt(0);
         if (c == 'а' || c == 'a' || c == 'b' || c == 'в')
             sortAscending();
-        else if(c == 'd' || c == 'н' || c == 'h')
+        else if(c == 'd' || c == 'н' || c == 'h' || c == 'д')
             sortDescending();
         else {
             System.out.println("Грешка! Невалиден избор.");
