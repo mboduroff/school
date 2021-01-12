@@ -23,29 +23,29 @@ public class Car {
         this.price = price;
         this.yearProduced = yearProduced;
 
-        System.out.print("[ВЪВЕДЕНА КОЛА] " + this);
+        System.out.print("✓ [ВЪВЕДЕНА КОЛА] " + this);
     }
 
     Car() {
-        System.out.println("► НОВА КОЛА ✱");
+        System.out.println("► НОВА КОЛА ◄");
         System.out.print("Марка: ");
         this.manufacturer = sc.next().trim();
         System.out.print("Модел: ");
         this.model = sc.next().trim();
         System.out.print("Цвят: ");
         this.colour = sc.next().trim();
-        System.out.print("Обем на двигателя: ");
+        System.out.print("Обем на двигателя (куб. см): ");
         this.engineDisplacement = sc.nextInt();
-        System.out.print("Цена: ");
+        System.out.print("Цена (лв): ");
         this.price = sc.nextInt();
         System.out.print("Година на производство: ");
         this.yearProduced = sc.nextInt();
 
-        System.out.print("[ВЪВЕДЕНА КОЛА] → " + this);
+        System.out.print("✓ [ВЪВЕДЕНА КОЛА] " + this);
     }
 
     public static void mainMenu() {
-        System.out.println("\n►  М Е Н Ю  ◄");
+        System.out.println("\n⦿  М Е Н Ю  ⦿");
         String line = "";
         while (!line.equals("0")) {
             System.out.println("1. Нов автомобил\n" +
@@ -135,7 +135,7 @@ public class Car {
     }
 
     public static void filterByPriceRange(double min, double max) {
-        System.out.printf("✱ Всички коли на цени между %.2f и %.2f са: ✱%n", min, max);
+        System.out.printf("✱ Всички коли на цени между %.2f и %.2f лв са: ✱%n", min, max);
         for (int i = 0; i < Cars.carList.size(); i++) {
             if (Cars.carList.get(i).getPrice() >= min && Cars.carList.get(i).getPrice() <= max)
                 System.out.print(Cars.carList.get(i));
@@ -198,7 +198,7 @@ public class Car {
 
     public static void sortByManufacturer() {
         System.out.println("\nМоля, въведете в какъв ред да бъде сортиран списъкът:\n" +
-                "A (ascending), В (възходящ) или D (descending), Н (низходящ)");
+                "↑ A (ascending), В (възходящ) или ↓ D (descending), Н (низходящ)");
         char c = sc.next().toLowerCase().charAt(0);
         if (c == 'а' || c == 'a' || c == 'b' || c == 'в')
             sortAscending();
@@ -212,7 +212,7 @@ public class Car {
 
     private static List<Car> sortAscending() {
         Cars.carList.sort(Comparator.comparing(c -> c.getManufacturer()));
-        System.out.println("✱ Всички коли подредени във възходящ ред по марка: ✱");
+        System.out.println("✱ Всички коли подредени във възходящ (↑) ред по марка: ✱");
         Cars.carList.forEach(System.out::print);
         System.out.println();
        return Cars.carList;
@@ -221,7 +221,7 @@ public class Car {
     private static List<Car> sortDescending() {
         Cars.carList.sort(Comparator.comparing(c -> c.getManufacturer()));
         Collections.reverse(Cars.carList);
-        System.out.println("✱ Всички коли подредени в низходящ ред по марка ✱");
+        System.out.println("✱ Всички коли подредени в низходящ (↓) ред по марка ✱");
         Cars.carList.forEach(System.out::print);
         System.out.println();
         return Cars.carList;
@@ -255,7 +255,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return String.format("%s %s в цвят %s, произведена %d г. с обем на двигателя %d куб. м. на цена %.2f лв.%n",
+        return String.format("%s %s в цвят %s, произведена %d г. с обем на двигателя %d куб. см. на цена %.2f лв.%n",
                 this.manufacturer, this.model, this.colour,
                 this.yearProduced, this.engineDisplacement, this.price);
     }
