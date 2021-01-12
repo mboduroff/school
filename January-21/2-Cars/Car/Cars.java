@@ -28,6 +28,8 @@ public class Cars {
                 1000, 100000, 2019);
         carList.add(c4);
 
+        carList.add(new Car());
+
         filterByColour();
         sortByManufacturer();
         c4.calculateTaxes();
