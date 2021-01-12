@@ -199,6 +199,7 @@ public class Car {
     public static void sortByManufacturer() {
         System.out.println("\nМоля, въведете в какъв ред да бъде сортиран списъкът:\n" +
                 "↑ A (ascending), В (възходящ) или ↓ D (descending), Н (низходящ)");
+        System.out.print("→ Избор: ");
         char c = sc.next().toLowerCase().charAt(0);
         if (c == 'а' || c == 'a' || c == 'b' || c == 'в')
             sortAscending();
