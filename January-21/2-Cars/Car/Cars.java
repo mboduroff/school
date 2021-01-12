@@ -8,7 +8,7 @@ import static Car.Car.*;
 public class Cars {
     public static List<Car> carList = new ArrayList<>();
     public static void main(String[] args) {
-        //Manufacturer, model, colour, engine displacement, price, year produced
+        // Parameters: Manufacturer, model, colour, engine displacement, price, year produced
         Car c = new Car("Chevrolet", "Tacuma", "червен",
                 1600, 10000, 2019);
         carList.add(c);
@@ -28,11 +28,6 @@ public class Cars {
                 1000, 100000, 2019);
         carList.add(c4);
 
-        carList.add(new Car());
-
-        filterByColour();
-        sortByManufacturer();
-        c4.calculateTaxes();
-        calculateTaxes(c1);
+        mainMenu();
     }
 }

@@ -1,5 +1,7 @@
 package Car;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.*;
 
 public class Car {
@@ -25,7 +27,7 @@ public class Car {
     }
 
     Car() {
-        System.out.println("=== НОВА КОЛА ===");
+        System.out.println("► НОВА КОЛА ✱");
         System.out.print("Марка: ");
         this.manufacturer = sc.next().trim();
         System.out.print("Модел: ");
@@ -39,11 +41,81 @@ public class Car {
         System.out.print("Година на производство: ");
         this.yearProduced = sc.nextInt();
 
-        System.out.print("[ВЪВЕДЕНА КОЛА] " + this);
+        System.out.print("[ВЪВЕДЕНА КОЛА] → " + this);
     }
 
-    public static void filterCarsByManufacturer(String query) {
-        System.out.println("=== Всички коли от марка " + query + ": ===");
+    public static void mainMenu() {
+        System.out.println("\n►  М Е Н Ю  ◄");
+        String line = "";
+        while (!line.equals("0")) {
+            System.out.println("1. Нов автомобил\n" +
+                    "2. Справка по марка\n" +
+                    "3. Справка по ценови диапазон\n" +
+                    "4. Справка по цвят\n" +
+                    "5. Справка по година на производство\n" +
+                    "6. Подреждане\n" +
+                    "7. Изчисляване на данък\n" +
+                    "0. Изход\n");
+            System.out.print("→ Избор: ");
+            switch (sc.next().trim()) {
+                default:
+                    System.out.println("Неразпозната команда. Моля, опитайте отново.");
+                    mainMenu();
+                    break;
+                case "1":
+                    Cars.carList.add(new Car());
+                    mainMenu();
+                    break;
+                case "2":
+                    filterByManufacturer();
+                    continueOrNot();
+                    break;
+                case "3":
+                    filterByPriceRange();
+                    continueOrNot();
+                    break;
+                case "4":
+                    filterByColour();
+                    continueOrNot();
+                    break;
+                case "5":
+                    filterByProductionYear();
+                    continueOrNot();
+                    break;
+                case "6":
+                    sortByManufacturer();
+                    continueOrNot();
+                    break;
+                case "7":
+                    calculateTaxes(new Car());
+                    continueOrNot();
+                    break;
+                case "0":
+                    System.out.println("Благодаря Ви, че използвахте програмата! :)");
+                    System.exit(0);
+            }
+            line = sc.next().trim();
+        }
+    }
+
+    // Methods below this line
+
+    public static void continueOrNot() {
+        System.out.println("Желаете ли да продължите?");
+        System.out.print("→ Избор: ");
+        char c = sc.next().toLowerCase().charAt(0);
+        if (c == 'д' || c == 'y' || c == 'd' || c == 'ъ')
+            mainMenu();
+        else if(c == 'н' || c == 'n') {
+            System.out.println("Благодаря Ви, че използвахте програмата! :)");
+            System.exit(0);
+        }
+        else
+            System.out.println("Неразпозната команда. Моля, опитайте отново с \"да\", \"не\", \"yes\" или \"no\".");
+    }
+
+    public static void filterByManufacturer(String query) {
+        System.out.println("✱ Всички коли от марка " + query + ": ✱");
         for (int i = 0; i < Cars.carList.size(); i++) {
             if (Cars.carList.get(i).getManufacturer().toLowerCase().equals(query.toLowerCase().trim()))
                 System.out.print(Cars.carList.get(i));
@@ -51,10 +123,10 @@ public class Car {
         System.out.println();
     }
 
-    public static void filterCarsByManufacturer() {
+    public static void filterByManufacturer() {
         System.out.print("Въведете марка, по която да филтрирам: ");
         String query = sc.next().toLowerCase().trim();
-        System.out.println("=== Всички коли от марка " + query + ": ===");
+        System.out.println("✱ Всички коли от марка " + query + ": ✱");
         for (int i = 0; i < Cars.carList.size(); i++) {
             if (Cars.carList.get(i).getManufacturer().toLowerCase().equals(query))
                 System.out.print(Cars.carList.get(i));
@@ -62,21 +134,21 @@ public class Car {
         System.out.println();
     }
 
-    public static void filterCarsByPriceRange(double min, double max) {
-        System.out.printf("=== Всички коли на цени между %.2f и %.2f са: ===", min, max);
+    public static void filterByPriceRange(double min, double max) {
+        System.out.printf("✱ Всички коли на цени между %.2f и %.2f са: ✱%n", min, max);
         for (int i = 0; i < Cars.carList.size(); i++) {
-            if (Cars.carList.get(i).getPrice() > min && Cars.carList.get(i).getPrice() < max)
+            if (Cars.carList.get(i).getPrice() >= min && Cars.carList.get(i).getPrice() <= max)
                 System.out.print(Cars.carList.get(i));
         }
         System.out.println();
     }
 
-    public static void filterCarsByPriceRange() {
+    public static void filterByPriceRange() {
         System.out.print("\nМоля, въведете долна граница за цените: ");
         double min = sc.nextDouble();
         System.out.print("Моля, въведете горна граница за цените: ");
         double max = sc.nextDouble();
-        System.out.printf("=== Всички коли на цени между %.2f и %.2f са: ===", min, max);
+        System.out.printf("✱ Всички коли на цени между %.2f и %.2f са: ✱%n", min, max);
         for (int i = 0; i < Cars.carList.size(); i++) {
             if (Cars.carList.get(i).getPrice() > min && Cars.carList.get(i).getPrice() < max)
                 System.out.print(Cars.carList.get(i));
@@ -85,7 +157,7 @@ public class Car {
     }
 
     public static void filterByColour(String query) {
-        System.out.println("\n=== Всички коли от цвят " + query + ": ===");
+        System.out.println("\n✱ Всички коли от цвят " + query + ": ✱");
         for (int i = 0; i < Cars.carList.size(); i++) {
             if (Cars.carList.get(i).getColour().toLowerCase().equals(query))
                 System.out.print(Cars.carList.get(i));
@@ -96,7 +168,7 @@ public class Car {
     public static void filterByColour() {
         System.out.print("\nМоля, въведете цвят, по който да филтрирам: ");
         String query = sc.next().toLowerCase().trim();
-        System.out.println("=== Всички коли от цвят " + query + ": ===");
+        System.out.println("✱ Всички коли от цвят " + query + ": ✱");
         for (int i = 0; i < Cars.carList.size(); i++) {
             if (Cars.carList.get(i).getColour().toLowerCase().equals(query))
                 System.out.print(Cars.carList.get(i));
@@ -105,7 +177,7 @@ public class Car {
     }
 
     public static void filterByProductionYear(int query) {
-        System.out.println("=== Всички коли, произведени през " + query + " г. са: ===");
+        System.out.println("✱ Всички коли, произведени през " + query + " г. са: ✱");
         for (int i = 0; i < Cars.carList.size(); i++) {
             if (Cars.carList.get(i).getYearProduced() == query)
                 System.out.print(Cars.carList.get(i));
@@ -116,7 +188,7 @@ public class Car {
     public static void filterByProductionYear() {
         System.out.print("Моля, въведете година на производство, по която да филтрирам: ");
         int query = sc.nextInt();
-        System.out.println("=== Всички коли, произведени през " + query + " г. са: ===");
+        System.out.println("✱ Всички коли, произведени през " + query + " г. са: ✱");
         for (int i = 0; i < Cars.carList.size(); i++) {
             if (Cars.carList.get(i).getYearProduced() == query)
                 System.out.print(Cars.carList.get(i));
@@ -140,7 +212,7 @@ public class Car {
 
     private static List<Car> sortAscending() {
         Cars.carList.sort(Comparator.comparing(c -> c.getManufacturer()));
-        System.out.println("=== Всички коли подредени във възходящ ред по марка: ===");
+        System.out.println("✱ Всички коли подредени във възходящ ред по марка: ✱");
         Cars.carList.forEach(System.out::print);
         System.out.println();
        return Cars.carList;
@@ -149,7 +221,7 @@ public class Car {
     private static List<Car> sortDescending() {
         Cars.carList.sort(Comparator.comparing(c -> c.getManufacturer()));
         Collections.reverse(Cars.carList);
-        System.out.println("=== Всички коли подредени в низходящ ред по марка ===");
+        System.out.println("✱ Всички коли подредени в низходящ ред по марка ✱");
         Cars.carList.forEach(System.out::print);
         System.out.println();
         return Cars.carList;
@@ -164,11 +236,11 @@ public class Car {
             taxes += 60;
         else
             taxes += 70;
-        System.out.printf("Данъкът за тази кола е %.2f лв.", taxes);
+        System.out.printf("Данъкът за тази кола е %.2f лв.%n", taxes);
         return taxes;
     }
 
-    public static double calculateTaxes(Car c) {
+    public static double calculateTaxes(@NotNull Car c) {
         double taxes = 0;
         taxes += (c.getEngineDisplacement() * 0.2);
         if (c.yearProduced >= 2010)
@@ -177,7 +249,7 @@ public class Car {
             taxes += 60;
         else
             taxes += 70;
-        System.out.printf("%nДанъкът за тази кола е %.2f лв.", taxes);
+        System.out.printf("Данъкът за тази кола е %.2f лв.%n", taxes);
         return taxes;
     }
 
