@@ -1,7 +1,6 @@
 package Car;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Car {
     private String manufacturer;
@@ -140,9 +139,7 @@ public class Car {
     }
 
     private static List<Car> sortAscending() {
-       Cars.carList = Cars.carList.stream()
-               .sorted(Comparator.comparing(c -> c.getManufacturer()))
-               .collect(Collectors.toList());
+        Cars.carList.sort(Comparator.comparing(c -> c.getManufacturer()));
         System.out.println("=== Всички коли подредени във възходящ ред по марка ===");
         Cars.carList.forEach(System.out::print);
         System.out.println();
@@ -150,9 +147,7 @@ public class Car {
     }
 
     private static List<Car> sortDescending() {
-        Cars.carList = Cars.carList.stream()
-                .sorted(Comparator.comparing(c -> c.getManufacturer()))
-                .collect(Collectors.toList());
+        Cars.carList.sort(Comparator.comparing(c -> c.getManufacturer()));
         Collections.reverse(Cars.carList);
         System.out.println("=== Всички коли подредени в низходящ ред по марка ===");
         Cars.carList.forEach(System.out::print);
