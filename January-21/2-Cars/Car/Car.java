@@ -63,7 +63,7 @@ public class Car {
     }
 
     public static void filterCarsByPriceRange(double min, double max) {
-        System.out.printf("=== Всички коли на цени между %.2f и %.2f са: ", min, max);
+        System.out.printf("=== Всички коли на цени между %.2f и %.2f са: ===", min, max);
         for (int i = 0; i < Cars.carList.size(); i++) {
             if (Cars.carList.get(i).getPrice() > min && Cars.carList.get(i).getPrice() < max)
                 System.out.print(Cars.carList.get(i));
@@ -76,7 +76,7 @@ public class Car {
         double min = sc.nextDouble();
         System.out.print("Моля, въведете горна граница за цените: ");
         double max = sc.nextDouble();
-        System.out.printf("=== Всички коли на цени между %.2f и %.2f са: ", min, max);
+        System.out.printf("=== Всички коли на цени между %.2f и %.2f са: ===", min, max);
         for (int i = 0; i < Cars.carList.size(); i++) {
             if (Cars.carList.get(i).getPrice() > min && Cars.carList.get(i).getPrice() < max)
                 System.out.print(Cars.carList.get(i));
@@ -140,7 +140,7 @@ public class Car {
 
     private static List<Car> sortAscending() {
         Cars.carList.sort(Comparator.comparing(c -> c.getManufacturer()));
-        System.out.println("=== Всички коли подредени във възходящ ред по марка ===");
+        System.out.println("=== Всички коли подредени във възходящ ред по марка: ===");
         Cars.carList.forEach(System.out::print);
         System.out.println();
        return Cars.carList;
