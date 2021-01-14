@@ -8,6 +8,7 @@ import static Car.Car.*;
 public class Cars {
     public static List<Car> carList = new ArrayList<>();
     public static void main(String[] args) {
+        System.out.println("♺ Зареждам база данни... ♺");
         // Parameters: Manufacturer, model, colour, engine displacement, price, year produced
         Car c = new Car("Chevrolet", "Tacuma", "червен",
                 1600, 10000, 2019);

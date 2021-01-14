@@ -110,8 +110,10 @@ public class Car {
             System.out.println("Благодаря Ви, че използвахте програмата! :)");
             System.exit(0);
         }
-        else
+        else {
             System.out.println("Неразпозната команда. Моля, опитайте отново с \"да\", \"не\", \"yes\" или \"no\".");
+            System.out.print("→ Избор: ");
+        }
     }
 
     public static void filterByManufacturer(String query) {
@@ -135,7 +137,7 @@ public class Car {
     }
 
     public static void filterByPriceRange(double min, double max) {
-        System.out.printf("✱ Всички коли на цени между %.2f и %.2f лв са: ✱%n", min, max);
+        System.out.printf("✱ Всички коли на цени между %.2f лв и %.2f лв са: ✱%n", min, max);
         for (int i = 0; i < Cars.carList.size(); i++) {
             if (Cars.carList.get(i).getPrice() >= min && Cars.carList.get(i).getPrice() <= max)
                 System.out.print(Cars.carList.get(i));
@@ -148,7 +150,7 @@ public class Car {
         double min = sc.nextDouble();
         System.out.print("Моля, въведете горна граница за цените: ");
         double max = sc.nextDouble();
-        System.out.printf("✱ Всички коли на цени между %.2f и %.2f лв са: ✱%n", min, max);
+        System.out.printf("✱ Всички коли на цени между %.2f лв и %.2f лв са: ✱%n", min, max);
         for (int i = 0; i < Cars.carList.size(); i++) {
             if (Cars.carList.get(i).getPrice() > min && Cars.carList.get(i).getPrice() < max)
                 System.out.print(Cars.carList.get(i));
