@@ -173,9 +173,11 @@ public class Car {
                             if (c.getEngineDisplacement() == c1.getEngineDisplacement()) {
                                 if(c.getYearProduced() == c1.getYearProduced()) {
                                     if (c.getColour().equals(c1.getColour())) {
-                                        System.out.println("Открит дубликат! Изтривам следния автомобил: ");
-                                        System.out.println(c);
-                                        Cars.carList.remove(c);
+                                        if(c.getPrice() == c1.getPrice()) {
+                                            System.out.println("Открит дубликат! Изтривам следния автомобил: ");
+                                            System.out.println(c);
+                                            Cars.carList.remove(c);
+                                        }
                                     }
                                 }
                             }
