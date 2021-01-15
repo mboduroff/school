@@ -36,11 +36,25 @@ public class Car {
         this.colour = sc.next().trim();
         System.out.print("Обем на двигателя (куб. см): ");
         this.engineDisplacement = sc.nextInt();
+        while (this.engineDisplacement < 0) {
+            System.out.print("Обемът на двигателя не може да бъде отрицателно число!" +
+                    " Моля, въведете нов обем: ");
+            this.engineDisplacement = sc.nextInt();
+        }
         System.out.print("Цена (лв): ");
         this.price = sc.nextInt();
+        while (this.price < 0) {
+            System.out.print("Цената не може да бъде отрицателно число!" +
+                    " Моля, въведете нова цена: ");
+            this.price = sc.nextInt();
+        }
         System.out.print("Година на производство: ");
         this.yearProduced = sc.nextInt();
-
+        while (this.yearProduced < 0) {
+            System.out.print("Годината на производство не може да бъде отрицателно число!" +
+                    " Моля, въведете нова цена: ");
+            this.yearProduced = sc.nextInt();
+        }
         System.out.print("✓ [ВЪВЕДЕНА КОЛА] " + this);
     }
 
@@ -55,6 +69,7 @@ public class Car {
                     "5. Справка по година на производство\n" +
                     "6. Подреждане\n" +
                     "7. Изчисляване на данък\n" +
+                    "8. Търсене по зададени параметри\n" +
                     "0. Изход\n");
             System.out.print("→ Избор: ");
             switch (sc.next().trim()) {
@@ -90,6 +105,10 @@ public class Car {
                     calculateTaxes(new Car());
                     continueOrNot();
                     break;
+                case "8":
+                    searchByParameters();
+                    continueOrNot();
+                    break;
                 case "0":
                     System.out.println("Благодаря Ви, че използвахте програмата! :)");
                     System.exit(0);
@@ -113,6 +132,27 @@ public class Car {
         else {
             System.out.println("Неразпозната команда. Моля, опитайте отново с \"да\", \"не\", \"yes\" или \"no\".");
             System.out.print("→ Избор: ");
+        }
+    }
+
+    public static void searchByParameters() {
+        System.out.println("Моля, въведете параметри по които да търсите:");
+        System.out.print("→ Марка: ");
+        String manufacturerQuery = sc.next().trim().toLowerCase();
+        System.out.print("→ Година на производство: ");
+        int yearQuery = sc.nextInt();
+        System.out.print("→ Цвят: ");
+        String colourQuery = sc.next().trim().toLowerCase();
+
+        System.out.println("\nТърся...\n");
+        for (int i = 0; i < Cars.carList.size(); i++) {
+            Car c = Cars.carList.get(i);
+            if (c.getManufacturer().toLowerCase().equals(manufacturerQuery)
+                    && c.getYearProduced() == yearQuery
+                    && c.getColour().toLowerCase().equals(colourQuery)) {
+                System.out.println("Открито попадение: ");
+                System.out.println(c);
+            }
         }
     }
 
