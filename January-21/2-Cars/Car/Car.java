@@ -70,6 +70,7 @@ public class Car {
                     "6. Подреждане\n" +
                     "7. Изчисляване на данък\n" +
                     "8. Търсене по зададени параметри\n" +
+                    "9. Изтрий дубликати\n" +
                     "0. Изход\n");
             System.out.print("→ Избор: ");
             switch (sc.next().trim()) {
@@ -107,6 +108,10 @@ public class Car {
                     break;
                 case "8":
                     searchByParameters();
+                    continueOrNot();
+                    break;
+                case "9":
+                    purgeDuplicates();
                     continueOrNot();
                     break;
                 case "0":
@@ -152,6 +157,31 @@ public class Car {
                     && c.getColour().toLowerCase().equals(colourQuery)) {
                 System.out.println("Открито попадение: ");
                 System.out.println(c);
+            }
+        }
+    }
+
+    public static void purgeDuplicates() {
+        System.out.println("\nТърся дубликати...\n");
+        for (int i = 0; i < Cars.carList.size(); i++) {
+            Car c = Cars.carList.get(i);
+            for (int j = 0; j < Cars.carList.size(); j++) {
+                Car c1 = Cars.carList.get(j);
+                if(c != c1) {
+                    if(c.getManufacturer().equals(c1.getManufacturer())) {
+                        if (c.getModel().equals(c1.getModel())) {
+                            if (c.getEngineDisplacement() == c1.getEngineDisplacement()) {
+                                if(c.getYearProduced() == c1.getYearProduced()) {
+                                    if (c.getColour().equals(c1.getColour())) {
+                                        System.out.println("Открит дубликат! Изтривам следния автомобил: ");
+                                        System.out.println(c);
+                                        Cars.carList.remove(c);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
