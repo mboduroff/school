@@ -1,4 +1,4 @@
-package Company;
+package Register;
 
 import java.time.LocalDate;
 

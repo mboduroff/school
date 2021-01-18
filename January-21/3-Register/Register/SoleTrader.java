@@ -1,7 +1,6 @@
-package Company;
+package Register;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class SoleTrader extends Company {
