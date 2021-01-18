@@ -65,7 +65,7 @@ public class Car {
             System.out.println("1. Нов автомобил\n" +
                     "2. Справка по марка\n" +
                     "3. Справка по ценови диапазон\n" +
-                    "4. Справка по цвят\n" +
+                    "4 Справка по цвят\n" +
                     "5. Справка по година на производство\n" +
                     "6. Подреждане\n" +
                     "7. Изчисляване на данък\n" +
@@ -304,7 +304,7 @@ public class Car {
 
     public double calculateTaxes() {
         double taxes = 0;
-        taxes += (this.getEngineDisplacement() * 0.2);
+        taxes += this.getEngineDisplacement() * 0.2;
         if (this.yearProduced >= 2010)
             taxes += 50;
         else if (this.yearProduced >= 2001)
@@ -317,10 +317,10 @@ public class Car {
 
     public static double calculateTaxes(@NotNull Car c) {
         double taxes = 0;
-        taxes += (c.getEngineDisplacement() * 0.2);
-        if (c.yearProduced >= 2010)
+        taxes += c.getEngineDisplacement() * 0.2;
+        if (c.getYearProduced() >= 2010)
             taxes += 50;
-        else if (c.yearProduced > 2001)
+        else if (c.getYearProduced() > 2001)
             taxes += 60;
         else
             taxes += 70;
@@ -335,7 +335,7 @@ public class Car {
                 this.yearProduced, this.engineDisplacement, this.price);
     }
 
-    //Getters and Setters below this line
+    // Getters and Setters below this line
 
     public String getManufacturer() {
         return manufacturer;
