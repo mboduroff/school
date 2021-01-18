@@ -26,6 +26,7 @@ public class SoleTrader extends Company {
         this.ownerName = ownerName;
         this.startupCapital = startupCapital;
         this.currentCapital = currentCapital;
+
     }
 
     public SoleTrader(Company c) {
@@ -57,7 +58,7 @@ public class SoleTrader extends Company {
     public void analyse() {
         double endCapital = this.currentCapital - this.startupCapital;
         if (endCapital > 0)
-            System.out.printf("%nКапиталът на този ЕТ е %.2f, което означава, че е на печалба.%n",
+            System.out.printf("%nНетната стойност на този ЕТ е %.2f, което означава, че е на печалба.%n",
                     endCapital);
         else
             System.out.printf("%nКапиталът на този ЕТ е %.2f, което означава, че е на загуба.%n",

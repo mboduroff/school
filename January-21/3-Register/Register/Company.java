@@ -18,6 +18,7 @@ public class Company {
     }
 
     public Company() {
+        System.out.println("===: Нова фирма :===");
         System.out.println("Моля, въведете следните данни за фирмата: ");
         System.out.print("Име на фирмата: ");
         this.companyName = sc.nextLine().trim();
