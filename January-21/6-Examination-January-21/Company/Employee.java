@@ -50,7 +50,8 @@ public class Employee {
     public static void filterByJobPosition() {
         System.out.println("\n===: Филтриране :===");
         System.out.println("Моля, въведете позиция по която да филтрирам: ");
-        String query = sc.nextLine().trim();
+        System.out.print("→ ");
+        String query = sc.next().trim();
         System.out.println("===: Филтрирам по позиция " + ANSI_RED + query + ANSI_RESET + " :===");
         for (int i = 0; i < Company.list.size(); i++) {
             if(Company.list.get(i).getPosition().toLowerCase().equalsIgnoreCase(query)) {
@@ -74,12 +75,12 @@ public class Employee {
     public static void filterBySalaryRange() {
         System.out.println("\n===: Филтриране :===");
         System.out.println("Моля, въведете следните данни, по които да филтрирам:");
-        System.out.print("Минимална заплата: ");
+        System.out.print("Минимална заплата (лв): ");
         double min = sc.nextDouble();
-        System.out.print("Максимална заплата: ");
+        System.out.print("Максимална заплата (лв): ");
         double max = sc.nextDouble();
 
-        System.out.printf("===: Филтрирам по диапазон на заплатите от %s%.2f%s лв до %s%.2f%s лв :===%n",
+        System.out.printf("\n===: Филтрирам по диапазон на заплатите от %s%.2f%s лв до %s%.2f%s лв :===%n",
                 ANSI_RED, min, ANSI_RESET,
                 ANSI_RED, max, ANSI_RESET);
 
