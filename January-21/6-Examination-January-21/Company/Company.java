@@ -20,7 +20,7 @@ public class Company {
         Employee e3 = new Employee("Димитър Петров", "Jr. Go Developer",
                 23, 3_100);
         list.add(e3);
-        Employee e4 = new Employee("Георги Иванов", "Team Leader",
+        Employee e4 = new Employee("Георги Иванов", "Project manager",
                 36, 5_000);
         list.add(e4);
 
