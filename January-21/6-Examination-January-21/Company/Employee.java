@@ -5,16 +5,15 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Employee {
-    private static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_RED = "\u001B[31m";
-
-
     private String name;
     private String position;
     private int age;
     private double salary;
 
     static Scanner sc = new Scanner(System.in);
+
+    private static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RED = "\u001B[31m";
 
     public Employee(String name, String position, int age, double salary) {
         this.name = name;
