@@ -28,5 +28,12 @@ public class Company {
 
         sortBySalary();
 
+        filterByJobPosition("Software Engineer");
+
+        Employee e5 = new Employee();
+        list.add(e5);
+
+        sortBySalary();
+
     }
 }

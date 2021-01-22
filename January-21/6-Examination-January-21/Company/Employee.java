@@ -21,10 +21,11 @@ public class Employee {
         this.position = position;
         this.age = age;
         this.salary = salary;
+        System.out.println("✓ [ВЪВЕДЕН] " + this);
     }
 
     public Employee() {
-        System.out.println("---< Нов служител >---");
+        System.out.println("\n---< Нов служител >---");
         System.out.print("Име: ");
         this.name = sc.nextLine().trim();
         System.out.print("Заемана длъжност: ");
@@ -33,31 +34,33 @@ public class Employee {
         this.age = sc.nextInt();
         System.out.print("Заплата (лв): ");
         this.salary = sc.nextDouble();
+        System.out.println("✓ [ВЪВЕДЕН] " + this);
+
     }
 
     public static void filterByJobPosition(String query) {
-        System.out.println("===: Филтрирам по позиция \\u001B[40m" + query.trim() + "\\u001B[0m :===");
+        System.out.println("\n===: Филтрирам по позиция " + ANSI_RED + query + ANSI_RESET + " :===");
         for (int i = 0; i < Company.list.size(); i++) {
-            if(Company.list.get(i).getPosition().equals(query)) {
+            if(Company.list.get(i).getPosition().equalsIgnoreCase(query)) {
                 System.out.println(Company.list.get(i));
             }
         }
     }
 
     public static void filterByJobPosition() {
-        System.out.println("===: Филтриране :===");
+        System.out.println("\n===: Филтриране :===");
         System.out.println("Моля, въведете позиция по която да филтрирам: ");
         String query = sc.nextLine().trim();
         System.out.println("===: Филтрирам по позиция " + ANSI_RED + query + ANSI_RESET + " :===");
         for (int i = 0; i < Company.list.size(); i++) {
-            if(Company.list.get(i).getPosition().equals(query)) {
+            if(Company.list.get(i).getPosition().toLowerCase().equalsIgnoreCase(query)) {
                 System.out.println(Company.list.get(i));
             }
         }
     }
 
     public static void filterBySalaryRange(double min, double max) {
-        System.out.printf("===: Филтрирам по диапазон на заплатите %s%.2f%s лв и %s%.2f%s лв :===%n",
+        System.out.printf("\n===: Филтрирам по диапазон на заплатите %s%.2f%s лв и %s%.2f%s лв :===%n",
                 ANSI_RED, min, ANSI_RESET,
                 ANSI_RED, max, ANSI_RESET);
 
@@ -69,7 +72,7 @@ public class Employee {
     }
 
     public static void filterBySalaryRange() {
-        System.out.println("===: Филтриране :===");
+        System.out.println("\n===: Филтриране :===");
         System.out.println("Моля, въведете следните данни, по които да филтрирам:");
         System.out.print("Минимална заплата: ");
         double min = sc.nextDouble();
