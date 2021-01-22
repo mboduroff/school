@@ -88,8 +88,8 @@ public class Employee {
     }
 
     public static List<Employee> sortBySalary() {
-        Company.list.sort(Comparator.comparing(employee -> employee.getSalary()));
-        System.out.println("\n===: Всички служители, подредени по заплата (↑) :===");
+        Company.list.sort(Comparator.comparing(employee -> employee.getAge()));
+        System.out.println("\n===: Всички служители, подредени по възраст (↑) :===");
         Company.list.forEach(System.out::println);
         return Company.list;
     }
