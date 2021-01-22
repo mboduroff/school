@@ -60,7 +60,7 @@ public class Employee {
     }
 
     public static void filterBySalaryRange(double min, double max) {
-        System.out.printf("\n===: Филтрирам по диапазон на заплатите %s%.2f%s лв и %s%.2f%s лв :===%n",
+        System.out.printf("\n===: Филтрирам по диапазон на заплатите от %s%.2f%s лв до %s%.2f%s лв :===%n",
                 ANSI_RED, min, ANSI_RESET,
                 ANSI_RED, max, ANSI_RESET);
 
@@ -79,7 +79,7 @@ public class Employee {
         System.out.print("Максимална заплата: ");
         double max = sc.nextDouble();
 
-        System.out.printf("===: Филтрирам по диапазон на заплатите %s%.2f%s лв и %s%.2f%s лв :===%n",
+        System.out.printf("===: Филтрирам по диапазон на заплатите от %s%.2f%s лв до %s%.2f%s лв :===%n",
                 ANSI_RED, min, ANSI_RESET,
                 ANSI_RED, max, ANSI_RESET);
 
@@ -131,7 +131,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return String.format("Служител %s: Възраст: %d / Позиция: %s / Заплата: %.2f лв",
+        return String.format("Служител %s: Възраст: %d г. / Позиция: %s / Заплата: %.2f лв",
                 this.getName(),
                 this.getAge(),
                 this.getPosition(),
