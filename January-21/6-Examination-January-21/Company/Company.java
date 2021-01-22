@@ -24,7 +24,7 @@ public class Company {
                 36, 5_000);
         list.add(e4);
 
-        filterBySalaryRange(2_900, 3_999);
+        filterBySalaryRange(2_900, 3_999); // Вместо между 500 и 800 лв, избрах тези числа, защото в моята фирма няма ниско-платени служители :)
 
         sortBySalary();
 
