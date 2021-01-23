@@ -90,7 +90,7 @@ public class Employee {
         }
     }
 
-    public static List<Employee> sortBySalary() {
+    public static List<Employee> sortByAge() {
         Company.list.sort(Comparator.comparing(employee -> employee.getAge()));
         System.out.println("\n===: Всички служители, подредени по възраст (↑) :===");
         Company.list.forEach(System.out::println);

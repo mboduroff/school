@@ -27,7 +27,7 @@ public class Company {
         filterBySalaryRange(2_900, 3_999); // Вместо между 500 и 800 лв (по усл.),
         // избрах тези числа, защото в моята фирма няма ниско-платени служители :)
 
-        sortBySalary();
+        sortByAge();
 
         filterByJobPosition("Software Engineer");
 
@@ -35,7 +35,7 @@ public class Company {
         list.add(e5);
 
         // Използване на методите без подадени параметри (с въвеждане от клавиатурата)
-        sortBySalary();
+        sortByAge();
         filterByJobPosition();
         filterBySalaryRange();
 
