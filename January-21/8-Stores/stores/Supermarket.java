@@ -37,7 +37,7 @@ public class Supermarket extends Store {
     }
 
     public void deliverGoods() {
-        System.out.printf("%n<Доставям стоки в %s...>%n%s", super.getName(), ANSI_BLUE);
+        System.out.printf("%n<Доставям стоки в супермаркет %s...>%n%s", super.getName(), ANSI_BLUE);
         super.getGoods().forEach(s -> System.out.println("→ " + s));
         if(super.getGoods().isEmpty()) {
             System.out.printf("%sНеуспешна доставка! 0%s доставени стоки.%n",
@@ -95,5 +95,13 @@ public class Supermarket extends Store {
         return super.toString() + String.format(" / Брой каси: %s / Денонощен: %s",
                 (ANSI_BLUE + this.cashDeskCount + ANSI_RESET),
                 (ANSI_BLUE + (this.isNonstop ? "да" : "не") + ANSI_RESET));
+    }
+
+    @Override
+    public void printWhenEntered() {
+        System.out.printf("%n%s[ВЪВЕДЕН]%s Супермаркет%s",
+                ANSI_RED,
+                ANSI_RESET,
+                this);
     }
 }

@@ -42,7 +42,7 @@ public class Store {
     }
 
     public void printWhenEntered() {
-        System.out.printf("%n%s[ВЪВЕДЕН]%s %s",
+        System.out.printf("%n%s[ВЪВЕДЕН]%s Магазин%s",
                 ANSI_RED,
                 ANSI_RESET,
                 this);
@@ -57,9 +57,9 @@ public class Store {
             System.out.printf("%sНеуспешна доставка! 0%s доставени стоки.%n",
                     ANSI_RED, ANSI_RESET);
         } else {
-            System.out.printf("%s%nУспешна доставка! %d доставени стоки.%n",
+            System.out.printf("%s%nУспешна доставка! %s доставени стоки.%n",
                     ANSI_RESET,
-                    this.goods.size());
+                    (ANSI_GREEN + this.goods.size() + ANSI_RESET));
             this.goods.clear();
         }
     }
@@ -147,7 +147,7 @@ public class Store {
 
     @Override
     public String toString() {
-        return String.format("Магазин: %s / Брой служители: %s / Оборот: %s%.2f%s лв / Брой стоки: %s",
+        return String.format(": %s / Брой служители: %s / Оборот: %s%.2f%s лв / Брой стоки: %s",
                 (ANSI_BLUE + this.name + ANSI_RESET),
                 (ANSI_BLUE + this.employeeCount + ANSI_RESET),
                 ANSI_BLUE, this.drawerAmount, ANSI_RESET,

@@ -6,14 +6,14 @@ import java.util.List;
 
 public class Stores {
     public static void main(String[] args) {
-        List<String> a = new LinkedList<>(Arrays.asList(
+        List<String> goods = new LinkedList<>(Arrays.asList(
                 "Моркови",
                 "Картофи",
                 "Брашно",
                 "Торта",
                 "Яйца"));
 
-        Store s = new Store("Lidl", 40, a, 16_000);
+        Store s = new Store("Lidl", 40, goods, 16_000);
         Supermarket sm = new Supermarket(s, 8, false);
 
         s.deliverGoods();
