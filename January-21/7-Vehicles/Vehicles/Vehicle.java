@@ -18,12 +18,13 @@ public class Vehicle {
     public Vehicle() {
         System.out.println("--< Ново превозно средство >--\n" +
                 "Моля, въведете следните свойства на това ППС:");
-        System.out.print("Максимална скорост: ");
-        this.maxSpeed = sc.nextInt();
+        System.out.print("Максимална скорост (km/h): ");
+        setMaxSpeed();
         System.out.print("Модел: ");
-        this.model = sc.next();
+        setModel();
         System.out.print("Цвят: ");
         this.colour = sc.next();
+        System.out.println("[ВЪВЕДЕНО ППС] " + this);
     }
 
     public void showInfo() {
@@ -31,54 +32,74 @@ public class Vehicle {
     }
 
     public void tune() {
+        System.out.printf("%n<Променям %s...>%n", this.toString());
         System.out.println("Въведете нови стойности на полетата за това ППС.\n" +
                 "Ако не искате да променяте някое от свойствата, оставете реда празен.");
-        setSpeed();
-        setModel();
-        setColour();
+        changeMaxSpeed();
+        changeModel();
+        changeColour();
     }
 
     public int getMaxSpeed() {
         return maxSpeed;
     }
 
-    public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
+    public void changeMaxSpeed() {
+        System.out.print("Въведете новa скорост (km/h): ");
+        String temp = sc.nextLine();
+        if (!temp.isBlank())
+        setMaxSpeed(Integer.parseInt(temp));
     }
 
-    public void setSpeed() {
-        System.out.print("Въведете новa скорост: ");
-        String temp = sc.next();
-        if (!temp.isBlank())
-        this.maxSpeed = Integer.parseInt(temp);
+    public void setMaxSpeed() {
+        System.out.print("Въведете скорост (km/h): ");
+        int temp = sc.nextInt();
+        while (temp < 0) {
+            System.out.println("Невалидна стойност! Скоростта трябва да бъде положително число.");
+            temp = sc.nextInt();
+        }
+            this.maxSpeed = temp;
+    }
+
+    public void setMaxSpeed(int temp) {
+        while (temp < 0) {
+            System.out.println("Невалидна стойност! Скоростта трябва да бъде положително число.");
+            temp = sc.nextInt();
+        }
+        this.maxSpeed = temp;
     }
 
     public String getModel() {
-        return model;
+        return model.trim();
     }
 
     public void setModel(String model) {
         this.model = model;
     }
 
-    public void setModel() {
-        System.out.print("Въведете нов цвят: ");
-        String temp = sc.next();
+    public void changeModel() {
+        System.out.print("Въведете нов модел: ");
+        String temp = sc.nextLine();
         if (!temp.isBlank())
-        this.model = temp;
+            this.model = temp;
+    }
+
+    public void setModel() {
+        System.out.print("Въведете нов модел: ");
+        this.model = sc.next();
     }
 
     public String getColour() {
-        return colour;
+        return colour.trim();
     }
 
-    public void setColour(String colour) {
+    public void changeColour(String colour) {
         this.colour = colour;
     }
 
-    public void setColour() {
+    public void changeColour() {
         System.out.print("Въведете нов цвят: ");
-        String temp = sc.next();
+        String temp = sc.nextLine();
         if (!temp.isBlank())
             this.colour = temp;
     }
@@ -86,7 +107,7 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return String.format("ППС %s: макс. скорост: %d km/h / цвят: %s ",
+        return String.format("ППС %s: макс. скорост: %d km/h / цвят: %s",
                 this.getModel(),
                 this.getMaxSpeed(),
                 this.getColour());
