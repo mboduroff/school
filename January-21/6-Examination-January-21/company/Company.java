@@ -1,9 +1,9 @@
-package Company;
+package company;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static Company.Employee.*;
+import static company.Employee.*;
 
 public class Company {
     static List<Employee> list = new ArrayList<>();

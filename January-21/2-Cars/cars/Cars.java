@@ -1,9 +1,9 @@
-package Car;
+package cars;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static Car.Car.*;
+import static cars.Car.*;
 
 public class Cars {
     public static List<Car> carList = new ArrayList<>();

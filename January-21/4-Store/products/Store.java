@@ -1,4 +1,4 @@
-package Products;
+package products;
 
 public class Store {
     public static void main(String[] args) {

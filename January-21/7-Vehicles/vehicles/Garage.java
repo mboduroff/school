@@ -1,4 +1,4 @@
-package Vehicles;
+package vehicles;
 
 public class Garage {
     public static void main(String[] args) {

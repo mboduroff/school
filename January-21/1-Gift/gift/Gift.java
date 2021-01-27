@@ -1,4 +1,4 @@
-package Gift;
+package gift;
 
 import java.util.*;
 

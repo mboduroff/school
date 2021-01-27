@@ -1,4 +1,4 @@
-package Car;
+package cars;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -286,7 +286,7 @@ public class Car {
     }
 
     private static List<Car> sortAscending() {
-        Cars.carList.sort(Comparator.comparing(c -> c.getManufacturer()));
+        Cars.carList.sort(Comparator.comparing(Car::getManufacturer));
         System.out.println("✱ Всички коли подредени във възходящ (↑) ред по марка: ✱");
         Cars.carList.forEach(System.out::print);
         System.out.println();
@@ -294,7 +294,7 @@ public class Car {
     }
 
     private static List<Car> sortDescending() {
-        Cars.carList.sort(Comparator.comparing(c -> c.getManufacturer()));
+        Cars.carList.sort(Comparator.comparing(Car::getManufacturer));
         Collections.reverse(Cars.carList);
         System.out.println("✱ Всички коли подредени в низходящ (↓) ред по марка ✱");
         Cars.carList.forEach(System.out::print);

@@ -1,4 +1,4 @@
-package Airport;
+package airport;
 
 import java.util.Scanner;
 

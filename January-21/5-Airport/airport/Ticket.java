@@ -1,4 +1,4 @@
-package Airport;
+package airport;
 
 public class Ticket extends Passenger {
     private String departingFrom;

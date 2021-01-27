@@ -1,8 +1,8 @@
-package Gift;
+package gift;
 
 import java.util.ArrayList;
 
-import static Gift.Gift.sortGiftsByPrice;
+import static gift.Gift.sortGiftsByPrice;
 
 public class TestGift {
     public static void main(String[] args) {
