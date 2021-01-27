@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import static stores.Store.sc;
-
 public class Stores {
     public static void main(String[] args) {
         List<String> a = new LinkedList<>(Arrays.asList(
