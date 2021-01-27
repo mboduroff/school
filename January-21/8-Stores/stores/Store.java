@@ -49,8 +49,9 @@ public class Store {
     }
 
     public void deliverGoods() {
-        System.out.printf("%n<Доставям стоки в %s...>%n%s",
-                (ANSI_GREEN + this.getName() + ANSI_RESET),
+        System.out.printf("%n\t%s▶ %sДоставям стоки в магазин %s...%n%s",
+                ANSI_GREEN, ANSI_RESET,
+                this.getName(),
                 ANSI_BLUE);
         this.goods.forEach(s -> System.out.println("→ " + s));
         if(this.goods.isEmpty()) {
@@ -65,7 +66,8 @@ public class Store {
     }
 
     public void collectCash() {
-        System.out.println("\nСъбирам оборот...");
+        System.out.printf("%n\t%s▶%s Събирам оборот... %n",
+                ANSI_GREEN, ANSI_RESET);
         if (this.drawerAmount > 0) {
             System.out.printf("Успешно събрани %s%.2f%s лв. Нов оборот: %s0.00 лв%s%n",
                     ANSI_BLUE, this.drawerAmount, ANSI_RESET,
