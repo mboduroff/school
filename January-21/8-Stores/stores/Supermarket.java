@@ -37,7 +37,7 @@ public class Supermarket extends Store {
     }
 
     public void deliverGoods() {
-        System.out.printf("%n\t%s▶ %sДоставям стоки в магазин %s...%n%s",
+        System.out.printf("%n\t%s▶ %sДоставям стоки в супермаркет %s...%n%s",
                 ANSI_GREEN, ANSI_RESET,
                 super.getName(),
                 ANSI_BLUE);
@@ -83,7 +83,8 @@ public class Supermarket extends Store {
     public void setNonstop() {
         sc.nextLine();
         System.out.println("Денонощен ли е магазинът?");
-        System.out.print("Въведете \"да\", \"не\", \"yes\" или \"no\": ");
+        System.out.printf("%sВъведете \"да\", \"не\", \"yes\" или \"no\":%s ",
+                ANSI_BLUE, ANSI_RESET);
         char c = sc.next().trim().charAt(0);
         while (c != 'д' && c != 'd' && c != 'y' && c != 'n' && c != 'н') {
             System.out.println("Невалиден отговор!");

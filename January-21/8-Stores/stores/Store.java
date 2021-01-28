@@ -31,7 +31,8 @@ public class Store {
     }
 
     public void emptyConstructor() {
-        System.out.printf("%n---< %sНов магазин%s >---%n", ANSI_GREEN, ANSI_RESET);
+        System.out.printf("%n--------------< %sНов магазин%s >---------------%n",
+                ANSI_GREEN, ANSI_RESET);
         System.out.println("Въведете следните свойства за новия магазин:");
         setName();
         setEmployeeCount();
@@ -49,7 +50,7 @@ public class Store {
     }
 
     public void deliverGoods() {
-        System.out.printf("%n\t%s▶ %sДоставям стоки в магазин %s...%n%s",
+        System.out.printf("%n%n\t%s▶ %sДоставям стоки в магазин %s...%n%s",
                 ANSI_GREEN, ANSI_RESET,
                 this.getName(),
                 ANSI_BLUE);
