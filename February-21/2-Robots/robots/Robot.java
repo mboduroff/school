@@ -14,6 +14,8 @@ public class Robot {
         this.name = name;
     }
 
+    // TODO create method printing the walked distance
+
     public void moveLeft() {
         xCoords -= 1;
     }
@@ -65,6 +67,7 @@ public class Robot {
         System.out.println("\n⦿  М Е Н Ю  ⦿");
         String line = "";
         while (!line.equals("0")) {
+            System.out.println(); // TODO enter menu items
             switch (sc.next().trim()) {
                 default:
                     System.out.println("Неразпозната команда. Моля, опитайте отново.");
@@ -89,6 +92,7 @@ public class Robot {
                     System.out.println("Настоящите координати са: " + getCoords());
                     break;
             }
+            line = sc.next().trim();
         }
     }
 
