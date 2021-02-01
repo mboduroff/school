@@ -16,28 +16,28 @@ public class Robot {
     }
 
     public void moveLeft() {
-        xCoords -= 1;
+        xCoords++;
         walkedDistance++;
         System.out.printf("%sУспешно направих стъпка наляво.%s%n",
                 ANSI_BLUE, ANSI_RESET);
     }
 
     public void moveRight() {
-        xCoords += 1;
+        xCoords++;
         walkedDistance++;
         System.out.printf("%sУспешно направих стъпка надясно.%s%n",
                 ANSI_BLUE, ANSI_RESET);
     }
 
     public void moveForwards() {
-        yCoords += 1;
+        yCoords++;
         walkedDistance++;
         System.out.printf("%sУспешно направих стъпка напред.%s%n",
                 ANSI_BLUE, ANSI_RESET);
     }
 
     public void moveBackwards() {
-        yCoords -= 1;
+        yCoords--;
         walkedDistance++;
         System.out.printf("%sУспешно направих стъпка назад.%s%n",
                 ANSI_BLUE, ANSI_RESET);
