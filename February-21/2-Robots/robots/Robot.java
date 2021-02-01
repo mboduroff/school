@@ -119,11 +119,11 @@ public class Robot {
                     menu();
                     break;
                 case "5":
-                    turnLeft();
+                    this.turnLeft();
                     menu();
                     break;
                 case "6":
-                    turnRight();
+                    this.turnRight();
                     menu();
                     break;
                 case "7":
