@@ -9,8 +9,6 @@ public class Robot {
     private int yCoords = 0;
     private int walkedDistance = 0;
 
-    private int lookingAt = 0;
-
     static Scanner sc = new Scanner(System.in);
 
     public Robot(String name) {
@@ -58,11 +56,6 @@ public class Robot {
     }
 
     private void turn90Deg() {
-        if(lookingAt < 4)
-            lookingAt = 0;
-        else
-            lookingAt++;
-
         int temp = this.xCoords;
         this.xCoords = this.yCoords;
         this.yCoords = temp;
@@ -106,6 +99,7 @@ public class Robot {
                     break;
                 case "0":
                     System.out.println("Благодаря Ви, че използвахте програмата! :)");
+                    System.out.println(this);
                     System.exit(0);
                     break;
                 case "1":
@@ -157,12 +151,19 @@ public class Robot {
         }
     }
 
+    @Override
+    public String toString() {
+        return String.format("Роботът %s е изминал %d стъпки досега и вмомента се намира на координати %s.",
+                this.name,
+                this.walkedDistance,
+                this.getCoords());
+    }
+
     // Colours
 
     public static final String ANSI_RESET = "\u001B[0m";
 
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_GREEN = "\u001B[32m";
 
 }
