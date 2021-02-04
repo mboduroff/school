@@ -9,6 +9,9 @@ abstract class Figure {
         this.dimension = dimension;
     }
 
+    abstract double findPerimeter();
+    abstract double findSurfaceArea();
+
     public double getDimension() {
         return dimension;
     }
@@ -16,9 +19,6 @@ abstract class Figure {
     public void setDimension(double dimension) {
         this.dimension = dimension;
     }
-
-    abstract double findPerimeter();
-    abstract double findSurfaceArea();
 
     @Override
     public String toString() {
