@@ -7,7 +7,7 @@ public abstract class Worker {
     private double hourlyWage; // BGN per hour
     private String workType;
     private int workedHours; // per week
-    private String workerType;
+    private final String workerType;
 
     public Worker(String name, double hourlyWage, String workType, int workedHours, String workerType) {
         this.name = name;
@@ -29,7 +29,7 @@ public abstract class Worker {
                 workerList.stream()
                         .mapToInt(Worker::getWorkedHours)
                         .average()
-                        .getAsDouble());
+                        .orElse(0));
 
         System.out.printf("Сумата от изплатени заплати на всички работници е: %.2f лв.%n",
                 workerList.stream()
@@ -39,7 +39,7 @@ public abstract class Worker {
                 workerList.stream()
                         .mapToDouble(Worker::calculateWeeklySalary)
                         .average()
-                        .getAsDouble());
+                        .orElse(0));
     }
 
     public String getName() {
