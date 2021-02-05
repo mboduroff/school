@@ -49,17 +49,18 @@ abstract class Patient {
         String temp = sc.next();
         while (temp.length() != 10) {
             System.out.print("Невалиден формат. Моля, въведете ЕГН отново: ");
-            temp = sc.next();
+            temp = sc.next().trim();
         }
         this.egn = temp;
     }
 
     public void setEgn(String temp) {
+        temp = temp.trim();
         while (temp.length() != 10) {
             System.out.print("Невалиден формат. Моля, въведете ЕГН отново: ");
             temp = sc.next();
         }
-        this.egn = temp;
+        this.egn = temp.trim();
     }
 
     @Override
