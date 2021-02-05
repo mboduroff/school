@@ -22,9 +22,9 @@ public abstract class Worker {
 
     public static void printStatistics() {
         System.out.printf("%nОбщият брой изработени часове от всички работници е: %d ч.%n",
-                workerList.stream().
-                        mapToInt(Worker::getWorkedHours).
-                        sum());
+                workerList.stream()
+                        .mapToInt(Worker::getWorkedHours)
+                        .sum());
         System.out.printf("Средният брой изработени часове от всички работници е: %.1f ч.%n",
                 workerList.stream()
                         .mapToInt(Worker::getWorkedHours)
@@ -32,14 +32,14 @@ public abstract class Worker {
                         .getAsDouble());
 
         System.out.printf("Сумата от изплатени заплати на всички работници е: %.2f лв.%n",
-                workerList.stream().
-                        mapToDouble(Worker::calculateWeeklySalary)
+                workerList.stream()
+                        .mapToDouble(Worker::calculateWeeklySalary)
                         .sum());
         System.out.printf("Средната седмична заплата за всички работници е: %.2f лв.%n",
-                workerList.stream().
-                        mapToDouble(Worker::calculateWeeklySalary).
-                        average().
-                        getAsDouble());
+                workerList.stream()
+                        .mapToDouble(Worker::calculateWeeklySalary)
+                        .average()
+                        .getAsDouble());
     }
 
     public String getName() {

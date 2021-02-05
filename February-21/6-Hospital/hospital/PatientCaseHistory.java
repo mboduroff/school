@@ -31,7 +31,6 @@ public class PatientCaseHistory {
         System.out.printf("Успешно добавени %d лекарства.%n",
                 this.medicineList.size());
         setStatus();
-        System.out.println("===< Край на епикризата >===");
         System.out.println("[ВЪВЕДЕНА НОВА ЕПИКРИЗА] " + this);
     }
 
