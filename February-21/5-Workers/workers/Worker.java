@@ -4,14 +4,14 @@ import static workers.Workers.workerList;
 
 public abstract class Worker {
     private String name;
-    private double wage; // BGN per hour
+    private double hourlyWage; // BGN per hour
     private String workType;
     private int workedHours; // per week
     private String workerType;
 
-    public Worker(String name, double wage, String workType, int workedHours, String workerType) {
+    public Worker(String name, double hourlyWage, String workType, int workedHours, String workerType) {
         this.name = name;
-        this.wage = wage;
+        this.hourlyWage = hourlyWage;
         this.workType = workType;
         this.workedHours = workedHours;
         this.workerType = workerType;
@@ -50,12 +50,12 @@ public abstract class Worker {
         this.name = name;
     }
 
-    public double getWage() {
-        return wage;
+    public double getHourlyWage() {
+        return hourlyWage;
     }
 
-    public void setWage(double wage) {
-        this.wage = wage;
+    public void setHourlyWage(double hourlyWage) {
+        this.hourlyWage = hourlyWage;
     }
 
     public String getWorkType() {
@@ -80,7 +80,7 @@ public abstract class Worker {
                 this.name,
                 this.workType,
                 this.workerType,
-                this.wage,
+                this.hourlyWage,
                 this.workedHours);
     }
 }
