@@ -52,7 +52,7 @@ public class PatientCaseHistory {
         int yyyy = sc.nextInt();
         int currentYear = LocalDate.now().getYear();
         while (yyyy > currentYear) {
-            System.out.println("Моля, въведете валидна година! Не може датата на създаване да бъде в бъдещето.\n" +
+            System.out.println("Моля, въведете валидна година! Не може датата да бъде в бъдещето.\n" +
                     "Опитайте отново: ");
             yyyy = sc.nextInt();
         }
