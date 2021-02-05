@@ -27,17 +27,21 @@ public class Author {
         System.out.println("===< Нов автор >===");
         System.out.println("Име:");
         this.name = sc.nextLine();
-        System.out.println("Роден:");
+        System.out.println("\tРоден:");
         this.born = this.setDate();
         setAlive();
         if(!alive) {
-            System.out.println("Починал: ");
+            System.out.println("\tПочинал: ");
             this.died = this.setDate();
         } else
             this.died = null;
     }
 
-    public LocalDate setDate() {
+    void print() {
+        System.out.println(this);
+    }
+
+    LocalDate setDate() {
         System.out.print("Ден от месеца: ");
         int dd = sc.nextInt();
         while (dd < 1 || dd > 31) {
@@ -85,11 +89,13 @@ public class Author {
         this.alive = alive;
     }
 
-    public void setAlive() {
-        boolean temp;
+    void setAlive() {
+        System.out.println("Жив ли е авторът?");
+        System.out.print("→ ");
         char c = sc.next().toLowerCase().charAt(0);
         while (c != 'д' && c != 'н' && c != 'y' && c != 'd' && c != 'n') {
-            System.out.print("Невалиден отговор. Моля, въведете \"да\" или \"не\": ");
+            System.out.println("Невалиден отговор. Моля, въведете \"да\" или \"не\":");
+            System.out.print("→ ");
             c = sc.next().toLowerCase().charAt(0);
         }
         this.alive = c != 'n' && c != 'н';
@@ -105,11 +111,11 @@ public class Author {
 
     @Override
     public String toString() {
-        return String.format("Автор %s, роден %s г.%s",
+        return String.format("Автор %s е роден %s г.%s",
                 this.name,
                 this.born.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")),
                 String.format("%s",
-                        this.alive ? "" : String.format(", починал %s г. (на %d г.)",
+                        this.alive ? "" : String.format(" и починал %s г. (на %d г.)",
                                 this.died.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")),
                                 Period.between(this.born, this.died).getYears()))
                         );
