@@ -24,7 +24,7 @@ public class Author {
     }
 
     public Author() {
-        System.out.println("===< Нов автор >===");
+        System.out.println("\n===< Нов автор >===");
         System.out.println("Име:");
         this.name = sc.nextLine();
         System.out.println("\tРоден:");
@@ -38,7 +38,7 @@ public class Author {
     }
 
     void print() {
-        System.out.println(this);
+        System.out.println("Автор " + this);
     }
 
     LocalDate setDate() {
@@ -111,7 +111,7 @@ public class Author {
 
     @Override
     public String toString() {
-        return String.format("Автор %s е роден %s г.%s",
+        return String.format("%s, роден %s г.%s",
                 this.name,
                 this.born.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")),
                 String.format("%s",
