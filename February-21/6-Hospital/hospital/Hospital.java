@@ -1,7 +1,6 @@
 package hospital;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public class Hospital {
     public static void main(String[] args) {
