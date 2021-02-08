@@ -10,7 +10,7 @@ public class Library {
                 null);
 //        a.print();
 
-        Book b = new Book("Математика за 11. клас: Геометрия (модул 1)", a, 9789547453302L);
+        Book b = new Book("Математика за 11. клас: Геометрия (модул 1)", a, "9789547453302");
         b.print();
         Magazine m = new Magazine();
         m.print();

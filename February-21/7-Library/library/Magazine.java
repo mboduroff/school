@@ -3,15 +3,15 @@ package library;
 import static library.Author.sc;
 
 public class Magazine extends Issue {
-    private long issn;
+    private String issn;
 
-    public Magazine(String name, Author author, long issn) {
+    public Magazine(String name, Author author, String issn) {
         super(name, author);
         this.issn = issn;
         System.out.println("[НОВО СПИСАНИЕ] " + this);
     }
 
-    public Magazine(long issn) {
+    public Magazine(String issn) {
         this.issn = issn;
         System.out.println("[НОВО СПИСАНИЕ] " + this);
     }
@@ -19,17 +19,17 @@ public class Magazine extends Issue {
     public Magazine() {
         System.out.println("\n===< Ново списание >===");
         System.out.print("Въведете ISSN за това списание: ");
-        this.issn = sc.nextLong();
+        this.issn = sc.next();
         System.out.println("[НОВО СПИСАНИЕ] " + this);
     }
 
     @Override
-    long getId() {
+    String getId() {
         return this.issn;
     }
 
     @Override
-    void setId(long id) {
+    void setId(String id) {
         this.issn = id;
     }
 

@@ -18,8 +18,8 @@ abstract class Issue {
         this.author = new Author();
     }
 
-    abstract long getId();
-    abstract void setId(long id);
+    abstract String getId();
+    abstract void setId(String id);
 
     void print() {
         System.out.println(this);
@@ -27,7 +27,7 @@ abstract class Issue {
 
     @Override
     public String toString() {
-        return String.format("Издание %s (от %s) е с идентификатор %d",
+        return String.format("Издание %s (от %s) е с идентификатор %s",
                 this.name,
                 this.author,
                 this.getId());
