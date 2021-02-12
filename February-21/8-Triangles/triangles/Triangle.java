@@ -43,7 +43,7 @@ public class Triangle {
     }
 
     public static double findArea(double sideA, double sideB, double sideC) {
-        double p = sideA + sideB + sideC;
+        double p = (sideA + sideB + sideC) / 2;
         return Math.sqrt(p * (p - sideA) * (p - sideB) * (p - sideC));
     }
 
