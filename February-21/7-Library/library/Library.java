@@ -11,8 +11,8 @@ public class Library {
 //        a.print();
 
         Book b = new Book("Математика за 11. клас: Геометрия (модул 1)", a, "9789547453302");
-        b.print();
+//        b.print();
         Magazine m = new Magazine();
-        m.print();
+//        m.print();
     }
 }
