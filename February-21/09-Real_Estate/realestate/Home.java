@@ -10,7 +10,12 @@ public class Home {
     public Home(double area) {
         this.area = area;
 
-        System.out.println("Въведено жилище: " + this);
+    }
+
+    public Home(double area, boolean quiet) {
+        this(area);
+        if (!quiet)
+            System.out.println("Въведено жилище: " + this);
     }
 
     public Home() {

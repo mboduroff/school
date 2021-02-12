@@ -2,7 +2,7 @@ package realestate;
 
 public class Homes {
     public static void main(String[] args) {
-        Home home = new Home(60);
+        Home home = new Home(60, false);
         House house = new House(200, 800);
 
         System.out.printf("\nЦената за това жилище е %.2f EUR.%n", home.calculatePrice(2000));

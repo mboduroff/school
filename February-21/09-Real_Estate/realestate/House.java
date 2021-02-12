@@ -6,6 +6,8 @@ public class House extends Home {
     public House(double area, double yardArea) {
         super(area);
         this.yardArea = yardArea;
+
+        System.out.println("Въведено: " + this);
     }
 
     public House() {
@@ -18,11 +20,13 @@ public class House extends Home {
 
     public House(double yardArea) {
         this.yardArea = yardArea;
+        System.out.println("Въведено: " + this);
     }
 
     public House(Home home, double yardArea) {
         super(home.getArea());
         this.yardArea = yardArea;
+        System.out.println("Въведено: " + this);
     }
 
     @Override
@@ -39,6 +43,15 @@ public class House extends Home {
 
     @Override
     public String toString() {
-        return super.toString() + " / двор: " + this.yardArea + " кв. m";
+        return super.toString() + String.format(" / двор: %.1f кв. m",
+                this.getYardArea());
+    }
+
+    public double getYardArea() {
+        return yardArea;
+    }
+
+    public void setYardArea(double yardArea) {
+        this.yardArea = yardArea;
     }
 }
