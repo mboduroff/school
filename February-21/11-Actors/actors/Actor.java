@@ -49,6 +49,7 @@ abstract class Actor {
             this.died = setDate();
         }
         else this.died = null;
+        testDates();
         sc.nextLine();
         System.out.println("Какъв вид актьор е " + this.name + "?");
         this.fieldOfWork = sc.nextLine();
@@ -77,6 +78,14 @@ abstract class Actor {
             yyyy = sc.nextInt();
         }
         return LocalDate.of(yyyy, mm, dd);
+    }
+
+    void testDates() {
+        if(this.died != null) {
+            if(this.died.isBefore(this.born)) {
+                throw new IllegalArgumentException("Грешка! Не може актьорът датата на смърт да бъде преди датата на раждане!");
+            }
+        }
     }
 
     boolean setAlive() {
