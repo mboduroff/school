@@ -1,15 +1,16 @@
 package actors;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class FullTimeActor extends Actor {
 
-    public FullTimeActor(String name, LocalDate born, LocalDate died, String fieldOfWork) {
-        super(name, born, died, fieldOfWork, "актьор на щат");
+    public FullTimeActor(String name, LocalDate born, LocalDate died, List<Production> appearances, String fieldOfWork) {
+        super(name, born, died, fieldOfWork, appearances, "актьор на щат");
     }
 
-    public FullTimeActor(String name, LocalDate born, String fieldOfWork) {
-        super(name, born, fieldOfWork, "актьор на щат");
+    public FullTimeActor(String name, LocalDate born, List<Production> appearances, String fieldOfWork) {
+        super(name, born, fieldOfWork, appearances, "актьор на щат");
     }
 
     public FullTimeActor() {

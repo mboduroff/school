@@ -3,6 +3,7 @@ package actors;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Scanner;
 
 abstract class Actor {
@@ -10,38 +11,43 @@ abstract class Actor {
     private LocalDate born;
     private LocalDate died;
     private String fieldOfWork;
-    private String actorType;
+    private final String actorType;
+
+    private List<Production> appearances;
 
     static Scanner sc = new Scanner(System.in);
 
     abstract double calculateSalary();
     abstract double calculateSalary(double hourlyPay, int workedHours);
 
-    public Actor(String name, LocalDate born, LocalDate died, String fieldOfWork, String actorType) {
+    public Actor(String name, LocalDate born, LocalDate died, String fieldOfWork, List<Production> appearances, String actorType) {
         this.name = name;
         this.born = born;
         this.died = died;
         this.fieldOfWork = fieldOfWork;
         this.actorType = actorType;
+        this.appearances = appearances;
         System.out.println("[ВЪВЕДЕН] " + this);
     }
 
-    public Actor(String name, LocalDate born, String fieldOfWork, String actorType) {
+    public Actor(String name, LocalDate born, String fieldOfWork, List<Production> appearances, String actorType) {
         this.name = name;
         this.born = born;
         this.died = null;
         this.fieldOfWork = fieldOfWork;
         this.actorType = actorType;
+        this.appearances = appearances;
 
         System.out.println("[ВЪВЕДЕН] " + this);
     }
 
     public Actor(String actorType) {
         this.actorType = actorType;
-        System.out.println("===< Нов " + this.actorType + " >===\n" +
+        System.out.println("\n===< Нов " + this.actorType + " >===\n" +
                 "\tВъведете следните данни за този актьор:");
         System.out.println("Имена: ");
         this.name = sc.nextLine();
+        sc.nextLine();
         System.out.println("\tДата на раждане:");
         this.born = setDate();
         if (!setAlive()) {
@@ -54,6 +60,23 @@ abstract class Actor {
         System.out.println("Какъв вид актьор е " + this.name + "?");
         this.fieldOfWork = sc.nextLine();
         System.out.println("[ВЪВЕДЕН] " + this);
+    }
+
+    void printAllData() {
+        System.out.println("\n" + this);
+        if (this.appearances != null) {
+            printAppearancesInProductions();
+        }
+        double salary = this.calculateSalary();
+        System.out.printf("%s получава заплата от %.2f лв.%n",
+                this.name,
+                salary);
+    }
+
+    void printAppearancesInProductions() {
+        System.out.println("\n\tТози актьор се е появявал в следните продукции:");
+        this.appearances.forEach(System.out::println);
+        System.out.println("==============================\n");
     }
 
     LocalDate setDate() {
@@ -80,10 +103,11 @@ abstract class Actor {
         return LocalDate.of(yyyy, mm, dd);
     }
 
-    void testDates() {
+    private void testDates() {
         if(this.died != null) {
             if(this.died.isBefore(this.born)) {
-                throw new IllegalArgumentException("Грешка! Не може актьорът датата на смърт да бъде преди датата на раждане!");
+                throw new IllegalArgumentException("Грешка! Не може актьорът датата на смърт" +
+                        " да бъде преди датата на раждане!");
             }
         }
     }
