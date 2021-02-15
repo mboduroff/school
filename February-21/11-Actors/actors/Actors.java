@@ -9,7 +9,7 @@ public class Actors {
                 "кино актьор");
 
         System.out.println("Заплатата на този актьор на щат е: "
-                + fullTimeActor.calculateSalary(12, 40)
+                + fullTimeActor.calculateSalary(8.40, 40)
                 + " лв.");
 
 
@@ -19,7 +19,7 @@ public class Actors {
                 "театрален актьор");
 
         System.out.println("Заплатата на този почасов актьор е: "
-                + partTimeActor.calculateSalary(12, 40)
+                + partTimeActor.calculateSalary(11.86, 42)
                 + " лв.");
 
 
