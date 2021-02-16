@@ -54,7 +54,7 @@ public class Mammal extends Creature {
     }
 
     public void setRegion() {
-        System.out.println("In which region does this mammal live?");
+        System.out.println("Where does this mammal live?");
         sc.nextLine();
         String temp = sc.nextLine();
         while (temp.isBlank()) {
