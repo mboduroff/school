@@ -1,6 +1,6 @@
 package hosting;
 
 public enum ServerOS {
-    Linux,
-    Windows
+    LINUX,
+    WINDOWS
 }
