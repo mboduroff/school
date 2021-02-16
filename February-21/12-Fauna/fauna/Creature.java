@@ -2,20 +2,20 @@ package fauna;
 
 import java.util.Scanner;
 
-abstract class Creatures {
+abstract class Creature {
     private int age;
     private double sizeInCm;
 
     static Scanner sc = new Scanner(System.in);
 
-    public Creatures(int age, double sizeInCm) {
+    public Creature(int age, double sizeInCm) {
         this.age = age;
         this.sizeInCm = sizeInCm;
 
         System.out.println("[Entered] " + this);
     }
 
-    public Creatures() {
+    public Creature() {
         System.out.println("\t===< New creature >===");
         System.out.println("Please enter the following properties of this creature:");
         System.out.print("Age: ");
@@ -25,7 +25,7 @@ abstract class Creatures {
         System.out.println("[Entered] " + this);
     }
 
-    abstract String printInfo();
+    abstract void printInfo();
 
     public int getAge() {
         return age;
