@@ -11,21 +11,22 @@ abstract class Creature {
     public Creature(int age, double sizeInCm) {
         this.age = age;
         this.sizeInCm = sizeInCm;
-
-        System.out.println("[Entered] " + this);
     }
 
     public Creature() {
-        System.out.println("\t===< New creature >===");
+        System.out.println("\n\t===< New creature >===");
         System.out.println("Please enter the following properties of this creature:");
         System.out.print("Age: ");
         this.age = sc.nextInt();
         System.out.print("Size (in cm): ");
         this.sizeInCm = sc.nextDouble();
-        System.out.println("[Entered] " + this);
     }
 
-    abstract void printInfo();
+    void printInfo() {
+        System.out.println(this.getInfo());
+    }
+
+    abstract String getInfo();
 
     public int getAge() {
         return age;

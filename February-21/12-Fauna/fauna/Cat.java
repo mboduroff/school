@@ -4,6 +4,12 @@ public class Cat extends Mammal {
     private String name;
     private String breed;
 
+    public Cat(int age, double sizeInCm, boolean hasFur, String region, String name, String breed) {
+        super(age, sizeInCm, hasFur, region);
+        this.name = name;
+        this.breed = breed;
+    }
+
     public Cat(boolean hasFur, String region, String name, String breed) {
         super(hasFur, region);
         this.name = name;
@@ -16,7 +22,7 @@ public class Cat extends Mammal {
     }
 
     public Cat() {
-        System.out.println("===< New cat >===");
+        System.out.println("\n===< New cat >===");
         System.out.println("Name:");
         this.name = sc.nextLine();
         System.out.println("Breed: ");
@@ -41,7 +47,7 @@ public class Cat extends Mammal {
 
     @Override
     String getInfo() {
-        return super.getInfo() + String.format("%nName: %s | Breed: %s",
+        return super.getInfo() + String.format("%nName: %s | Breed: %s%n",
                 this.getName(),
                 this.getBreed());
     }

@@ -4,6 +4,12 @@ public class Mammal extends Creature {
     private boolean hasFur;
     private String region;
 
+    public Mammal(int age, double sizeInCm, boolean hasFur, String region) {
+        super(age, sizeInCm);
+        this.hasFur = hasFur;
+        this.region = region;
+    }
+
     public Mammal(boolean hasFur, String region) {
         this.hasFur = hasFur;
         this.region = region;
@@ -31,7 +37,7 @@ public class Mammal extends Creature {
         char c = sc.next().charAt(0);
         while(c != 't' && c != 'f' && c != 'y' && c != 'n') {
             System.out.println("Invalid answer. Please try again, using one of these words:\n" +
-                    "\"yes\", \"no\", \"true\" or \"false\"\n");
+                    "'yes', 'no', 'true' or 'false'\n");
             System.out.print("→ ");
             c = sc.next().charAt(0);
         }
@@ -49,6 +55,7 @@ public class Mammal extends Creature {
 
     public void setRegion() {
         System.out.println("In which region does this mammal live?");
+        sc.nextLine();
         String temp = sc.nextLine();
         while (temp.isBlank()) {
             System.out.println("Invalid answer. Please try again.\n"
@@ -57,12 +64,9 @@ public class Mammal extends Creature {
         this.region = temp;
     }
 
-    void printInfo() {
-        System.out.println(this.getInfo());
-    }
-
+    @Override
     String getInfo() {
-        return String.format("Size: %.1f | Age: %d y.%n" +
+        return String.format("Size: %.1f cm | Age: %d y.%n" +
                         "Fur: %s | Region: %s",
                 this.getSizeInCm(),
                 this.getAge(),
