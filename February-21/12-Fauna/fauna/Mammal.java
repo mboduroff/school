@@ -55,7 +55,7 @@ public class Mammal extends Creature {
 
     public void setRegion() {
         System.out.println("Where does this mammal live?");
-        sc.nextLine();
+        sc.nextLine(); // fixing line skipping issue
         String temp = sc.nextLine();
         while (temp.isBlank()) {
             System.out.println("Invalid answer. Please try again.\n"
