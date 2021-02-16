@@ -1,5 +1,8 @@
 package fauna;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestFauna {
     public static void main(String[] args) {
         Cat cat1 = new Cat();
@@ -15,6 +18,22 @@ public class TestFauna {
         System.out.println("Info about my second cat: \n" + cat2.getInfo());
 
         printBreedOfBiggerCat(cat1, cat2);
+
+        List<Human> humanList = new ArrayList<>();
+        humanList.add(new Human("Ivan", "blue"));
+        humanList.add(new Human("Petur", "brown"));
+        humanList.add(new Human("Petya", "green"));
+        humanList.add(new Human("Georgi", "brown"));
+        humanList.add(new Human("Gergana", "blue"));
+
+
+        System.out.println("Information about all humans: ");
+        humanList.forEach(Human::printInfo);
+
+        System.out.println("Information about all humans with blue eyes: ");
+        humanList.stream()
+                .filter(h -> h.getEyeColour().equals("blue"))
+                .forEach(Human::printInfo);
     }
 
     public static void printBreedOfBiggerCat(Cat c1, Cat c2) {

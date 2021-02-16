@@ -41,7 +41,7 @@ public class Cat extends Mammal {
 
     @Override
     String getInfo() {
-        return super.toString() + String.format("%nName: %s | Breed: %s",
+        return super.getInfo() + String.format("%nName: %s | Breed: %s",
                 this.getName(),
                 this.getBreed());
     }
