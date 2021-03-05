@@ -17,14 +17,12 @@ public class Smartphone implements CanCall, CanBrowse {
 
     @Override
     public void call(String number) {
-        boolean successful = false;
+        boolean successful = true;
         try {
             Integer.parseInt(number);
-            successful = true;
         } catch (NumberFormatException e) {
             successful = false;
         } finally {
-
             if (successful && number.length() == 10) {
                 System.out.println("Calling... " + number);
             } else {
