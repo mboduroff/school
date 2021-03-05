@@ -14,11 +14,17 @@ public class PhoneShop {
         smartphone.call("0888888888");
         smartphone.call("08888888B8");
 
-        System.out.println("\nEnter a website you'd like to visit:");
-        smartphone.browse(sc.nextLine().trim());
+        System.out.println("\nEnter the websites you'd like to visit: (separated by a space)");
+        String[] websites = sc.nextLine().split("\\s+");
+        for (String website : websites) {
+            smartphone.browse(website.trim());
+        }
 
-        System.out.println("\nEnter a number you'd like to call:");
-        smartphone.call(sc.nextLine().trim());
+        System.out.println("\nEnter the numbers you'd like to call: (separated by a space)");
+        String[] phoneNumbers = sc.nextLine().split("\\s+");
+        for (String number : phoneNumbers) {
+            smartphone.call(number.trim());
+        }
     }
 
 }
