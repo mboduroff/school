@@ -38,7 +38,6 @@ class UnaryComparator {
 
         String[] numStrings = sc.nextLine().split("\\s+");
 
-
         int[] nums = new int[numStrings.length];
         try {
             for (int i = 0; i < numStrings.length; i++) {

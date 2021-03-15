@@ -11,8 +11,8 @@ class TriangleAgain {
     static Scanner sc = new Scanner(System.in);
 
     public TriangleAgain(double sideA, double sideB, int angleGamma) {
-        if (sideA < 0 || sideB < 0 || angleGamma < 0) {
-            System.out.println("Грешка! Мерките не могат да бъдат отрицателни числа.");
+        if (sideA <= 0 || sideB <= 0 || angleGamma <= 0) {
+            System.err.println("Грешка! Мерките не могат да бъдат отрицателни числа.");
         } else {
             this.sideA = sideA;
             this.sideB = sideB;
@@ -39,7 +39,7 @@ class TriangleAgain {
         } catch (InputMismatchException e) {
             System.out.println("Грешка! Моля, въвеждайте само числа.");
         } finally {
-            if (sideA < 0 || sideB < 0 || angleGamma < 0) {
+            if (sideA <= 0 || sideB <= 0 || angleGamma <= 0) {
                 System.out.println("Грешка! Мерките не могат да бъдат отрицателни числа.");
             } else {
                 this.sideA = a;
@@ -49,7 +49,7 @@ class TriangleAgain {
         }
     }
 
-    double findArea() {
+    void printArea() {
         double sideC = Math.sqrt(
                 Math.pow(this.sideA, 2) + Math.pow(this.sideB, 2)
                 - 2 * this.sideA * this.sideB *
@@ -58,6 +58,11 @@ class TriangleAgain {
 
         double p = (this.sideA + this.sideB + sideC) / 2;
 
-        return Math.sqrt(p * (p - this.sideB) * (p - this.sideB) * (p - sideC));
+        double S = Math.sqrt(p * (p - this.sideB) * (p - this.sideB) * (p - sideC));
+
+        if (S == 0) {
+            System.err.println("Такава фигура не съществува.");
+        } else
+            System.out.println(S);
     }
 }
