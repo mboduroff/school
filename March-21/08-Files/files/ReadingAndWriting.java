@@ -2,7 +2,6 @@ package files;
 
 import java.io.*;
 
-
 public class ReadingAndWriting {
     public static void main(String[] args) throws IOException {
         try (PrintWriter out = new PrintWriter("D:\\Git\\March-21\\08-Files\\files\\text.txt")) {
