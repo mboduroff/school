@@ -31,7 +31,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return String.format("Student:\t name: %s | age: %d y.",
+        return String.format("%s %d",
                 this.getName(),
                 this.getAgeInYears());
     }

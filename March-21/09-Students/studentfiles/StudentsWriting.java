@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentsMain {
+public class StudentsWriting {
     public static void main(String[] args) {
         List<Student> studentList = new ArrayList<>();
         studentList.add(new Student("Ivan", 12));

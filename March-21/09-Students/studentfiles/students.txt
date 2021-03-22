@@ -1,10 +1,10 @@
-Student:	 name: Ivan | age: 12 y.
-Student:	 name: Petur | age: 14 y.
-Student:	 name: Vanya | age: 16 y.
-Student:	 name: Petya | age: 18 y.
-Student:	 name: Georgi | age: 15 y.
-Student:	 name: Gergana | age: 13 y.
-Student:	 name: John | age: 9 y.
-Student:	 name: Jane | age: 8 y.
-Student:	 name: Jim | age: 8 y.
-Student:	 name: Steve | age: 8 y.
+Ivan 12
+Petur 14
+Vanya 16
+Petya 18
+Georgi 15
+Gergana 13
+John 9
+Jane 8
+Jim 8
+Steve 8
