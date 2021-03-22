@@ -13,7 +13,7 @@ public class ReadingAndWriting {
         }
 
         StringBuilder str = new StringBuilder();
-        BufferedReader reader = null;
+        BufferedReader reader;
         try {
             reader = new BufferedReader(new FileReader("D:\\Git\\March-21\\08-Files\\files\\text.txt")) ;
             String temp = reader.readLine();
@@ -21,14 +21,15 @@ public class ReadingAndWriting {
                 str.append(temp).append("\n");
                 temp = reader.readLine();
             }
+            reader.close();
         } catch (FileNotFoundException e) {
             System.err.println("Файлът не е открит!");
         } catch (IOException e) {
             System.err.println("Входно-изходна грешка!");
+        } catch (NullPointerException e) {
+            System.err.println("Грешка в указателите.");
         } finally {
             System.out.println(str);
-            assert reader != null;
-            reader.close();
         }
     }
 }
