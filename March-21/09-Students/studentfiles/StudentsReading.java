@@ -14,7 +14,7 @@ public class StudentsReading {
             Scanner reader = new Scanner(new FileReader("D:\\Git\\March-21\\09-Students\\studentfiles\\students.txt"));
 
             while (reader.hasNextLine()) {
-                String[] tokens = reader.nextLine().split("\\s+");
+                String[] tokens = reader.nextLine().split("\\s++");
                 studentList.add(new Student(tokens[0], Integer.parseInt(tokens[1])));
             }
 
