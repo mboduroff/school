@@ -19,7 +19,7 @@ public class StudentsWriting {
         studentList.add(new Student("Jim", 8));
         studentList.add(new Student("Steve", 8));
 
-        try (PrintWriter out = new PrintWriter("D:\\Git\\March-21\\09-Students\\studentfiles\\students.txt")) {
+        try (PrintWriter out = new PrintWriter("students.txt")) {
             for (Student student : studentList) {
                 out.println(student);
             }
