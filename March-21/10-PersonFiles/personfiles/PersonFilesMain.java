@@ -1,16 +1,52 @@
 package personfiles;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 
 public class PersonFilesMain {
-    public static void main(String[] args) {
-        List<Person> people = new ArrayList<>();
+    private static List<Person> people = new ArrayList<>();
+    private static final String fileName = "D:\\Git\\March-21\\10-PersonFiles\\personfiles\\people.dat";
 
+    public static void main(String[] args) {
+
+        fillDatabase();
+        writePeople();
+
+        people.clear();
+
+        readPeople();
+
+        printYoungest();
+        printOldest();
+
+    }
+
+    private static void writePeople() {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileName))) {
+            out.writeObject(people);
+            System.out.println("\n\tserialised:");
+            people.forEach(System.out::println);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void readPeople() {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileName))) {
+            people = Collections.unmodifiableList((ArrayList<Person>) in.readObject());
+
+            System.out.println("\n\tdeserialised:");
+            people.forEach(System.out::println);
+        } catch (FileNotFoundException e) {
+            System.err.println("Файлът не е открит!");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void fillDatabase() {
         people.add(new Person("Ivan", 12, "ул. Първа 2"));
         people.add(new Person("Petur", 14, "ул. Втора 3"));
         people.add(new Person("Vanya", 16, "ул. Трета 4"));
@@ -21,35 +57,21 @@ public class PersonFilesMain {
         people.add(new Person("Jane", 8, "ул. Осма 9"));
         people.add(new Person("Jim", 7, "ул. Девета 10"));
         people.add(new Person("Steve", 8, "ул. Десета 11"));
+    }
 
-        try (PrintWriter out = new PrintWriter("people.txt")) {
-            for (Person person : people) {
-                out.println(person);
-            }
-        } catch (FileNotFoundException e) {
-            System.err.println("Файлът не е открит!");
-        }
-
-        people.clear();
-
-        try {
-            Scanner reader = new Scanner(new FileReader("people.txt"));
-
-            while (reader.hasNextLine()) {
-                String[] tokens = reader.nextLine().split("\\s++");
-                people.add(new Person(tokens[0], Integer.parseInt(tokens[1]), tokens[2]));
-            }
-
-            reader.close();
-        } catch (FileNotFoundException e) {
-            System.err.println("Файлът не е открит!");
-        }
-
-        System.out.printf("The oldest person is %d y. o. \n",
+    private static void printYoungest() {
+        System.out.printf("%nThe youngest person is %d y. o. %n",
                 people.stream()
                         .mapToInt(Person::getAge)
                         .min()
                         .getAsInt());
+    }
 
+    private static void printOldest() {
+        System.out.printf("The oldest person is %d y. o. %n",
+                people.stream()
+                        .mapToInt(Person::getAge)
+                        .max()
+                        .getAsInt());
     }
 }
