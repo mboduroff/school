@@ -46,7 +46,7 @@ public class StudentsReading {
         }
 
         if (limit1 > limit2) {
-            System.out.println("Долната граница не може да бъде по-голяма от горнта!" +
+            System.out.println("Долната граница не може да бъде по-голяма от горната!\n" +
                     "Разменям стойностите...");
             int temp = limit1;
             limit1 = limit2;
@@ -63,7 +63,7 @@ public class StudentsReading {
         }
     }
 
-    private static void printFilteredStudents ( int lowerLimit, int upperLimit){
+    private static void printFilteredStudents (int lowerLimit, int upperLimit) {
         System.out.println("\n\tФилтрирам учениците по възраст:");
 
         if (lowerLimit > upperLimit) {
