@@ -25,7 +25,6 @@ public class Main {
                 System.out.println("Грешка! Недостатъчно аргументи.");
             }
 
-
             temp = sc.nextLine();
         }
 
