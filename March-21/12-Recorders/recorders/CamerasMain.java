@@ -13,7 +13,7 @@ public class CamerasMain {
 
         InputStream is = null;
         try {
-            is = new FileInputStream("\\employees.txt");
+            is = new FileInputStream("\\employees.txt"); // example file
         } catch (FileNotFoundException e) {
             System.err.println("Файлът не е открит");
         }
