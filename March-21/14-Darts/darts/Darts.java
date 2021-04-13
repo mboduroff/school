@@ -10,11 +10,12 @@ class Darts extends JFrame {
 
     public Darts() {
         class GraphicsPanel extends JPanel {
-            final int circleCount = Integer.parseInt(JOptionPane.showInputDialog(new JFrame(), "Circle count:"));
+            final int circleCount = Integer.parseInt(JOptionPane.showInputDialog(new JFrame(),
+                    "Circle count:"));
 
             public void paint(Graphics graphics) {
                 Color currentColor = secondaryColour;
-                int[] currentCoords = { 10, 10, this.getWidth() - 20, this.getHeight() - 20 };
+                int[] currentCoords = { 10, 10, this.getWidth() - 20, this.getWidth() - 20 };
 
                 final int diff = ((currentCoords[2] - currentCoords[0]) / 2) / circleCount;
 //                System.out.println(diff);
@@ -41,18 +42,25 @@ class Darts extends JFrame {
 
                 }
 
+                g.setColor(Color.decode("#80deea"));
+                g.fillRoundRect(10, 450, 365, 200, 10, 10);
+
+                g.setColor(Color.BLACK);
+                String txt = "";
+                g.drawString(txt, 40, 550);
             }
 
         }
 
+        this.setLayout(new GridLayout());
         GraphicsPanel gp = new GraphicsPanel();
         add(gp);
         setTitle("Darts");
-        setSize(400, 400);
+        setSize(400, 700);
         setVisible(true);
         setLocationRelativeTo(null);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     }
 
     public static void main(String[] args) {
